@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivanhoe Meeting Strategy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #F1F1F1;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: #c9c9c9;
+            color: rgb(5, 5, 5);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            width: 150px;
+            margin-bottom: 15px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .content {
+            padding: 40px;
+            position: relative;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border-left: 5px solid #EF3340;
+            position: relative;
+        }
+        
+        .section h2 {
+            color: #222222;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        .section h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #EF3340;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .current-situation {
+            border-left-color: #EF3340;
+        }
+        
+        .current-situation h2::before {
+            background: #EF3340;
+        }
+        
+        .proposed-strategy {
+            border-left-color: #EF3340;
+        }
+        
+        .proposed-strategy h2::before {
+            background: #EF3340;
+        }
+        
+        .transition-plan {
+            border-left-color: #EF3340;
+        }
+        
+        .transition-plan h2::before {
+            background: #EF3340;
+        }
+        
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .point {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #EF3340;
+        }
+        
+        .point h3 {
+            color: #222222;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .stakeholder {
+            display: inline-block;
+            background: #EF3340;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .timeline-item {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #EF3340;
+        }
+        
+        .timeline-step {
+            background: #EF3340;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+        }
+        
+        .risk-mitigation {
+            background: #f1f1f1;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .success-metrics {
+            background: #f1f1f1;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .financial-impact {
+            background: #555555;
+            color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+            position: relative;
+        }
+        
+        .financial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .financial-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .financial-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .meeting-prep {
+            background: #ffffff;
+            border-left-color: #EF3340;
+            margin-top: 30px;
+        }
+        
+        .action-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .action-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #EF3340;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+        
+        .priority-high { border-left-color: #EF3340; }
+        .priority-medium { border-left-color: #777777; }
+        .priority-low { border-left-color: #AAAAAA; }
+        
+        .watermark {
+            position: absolute;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .watermark-top-right {
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: auto;
+        }
+        
+        .watermark-bottom-left {
+            bottom: 20px;
+            left: 20px;
+            width: 120px;
+            height: auto;
+        }
+        
+        .watermark-center {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .content { padding: 20px; }
+            .section { padding: 20px; }
+            .timeline { flex-direction: column; gap: 20px; }
+            .timeline-item:not(:last-child)::after { display: none; }
+            .watermark { opacity: 0.02; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="assets/ivanplats-logo.svg" alt="Ivanplats Logo" class="logo">
+            <h1>Ivanhoe Meeting</h1>
+            <p>Transitioning Edutouch Relationship & Establishing New Business Entity</p>
+        </div>
+        
+        <div class="content">
+            <img src="assets/ivanplats-logo.svg" alt="" class="watermark watermark-top-right">
+            
+            <div class="section current-situation">
+                <h2>Current Situation Analysis</h2>
+                <div class="key-points">
+                    <div class="point">
+                        <h3>Ivanhoe's Concerns</h3>
+                        <p>Worried about Edutouch and future relations following DeonS's resignation. Seeking stability and continuity in their learning management solutions.</p>
+                    </div>
+                    <div class="point">
+                        <h3>Outstanding Deliverables</h3>
+                        <p>Tablet solution development needs completion to secure final payment and provide project closure for Edutouch.</p>
+                    </div>
+                    <div class="point">
+                        <h3>Galaxy LMS Limitations</h3>
+                        <p>On-premise only, difficult to market, years away from online capability. Customized for Ivanplats but not market-competitive.</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <h3>Key Stakeholders:</h3>
+                    <span class="stakeholder">Ivanhoe/Ivanplats</span>
+                    <span class="stakeholder">Lappies</span>
+                    <span class="stakeholder">DeonS (Support)</span>
+                    <span class="stakeholder">DB (Development)</span>
+                    <span class="stakeholder">Lynda (Edutouch)</span>
+                </div>
+            </div>
+            
+            <div class="section proposed-strategy">
+                <h2>Proposed Strategy</h2>
+                <div class="key-points">
+                    <div class="point">
+                        <h3>New Company Formation</h3>
+                        <p>Establish new business entity to take over Ivanplats relationship, ensuring clean slate and restored confidence.</p>
+                    </div>
+                    <div class="point">
+                        <h3>Contractor Network</h3>
+                        <p>Contract DeonS for ongoing support and DB for development work, maintaining expertise while building new revenue streams.</p>
+                    </div>
+                    <div class="point">
+                        <h3>Focus on Tablet Solutions</h3>
+                        <p>Primary income source moving forward, as Galaxy development is complete and market entry remains challenging.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-step">1</div>
+                        <strong>Complete Deliverables</strong>
+                        <p>Finish tablet solution for final payment</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-step">2</div>
+                        <strong>Establish New Company</strong>
+                        <p>Form new entity with expert guidance</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-step">3</div>
+                        <strong>Transition Relationship</strong>
+                        <p>Take over Ivanplats account management</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-step">4</div>
+                        <strong>Build Revenue</strong>
+                        <p>Focus on tablet solutions and support services</p>
+                    </div>
+                </div>
+            </div>
+            
+            <img src="assets/ivanplats-logo.svg" alt="" class="watermark watermark-center">
+            
+            <div class="section transition-plan">
+                <h2>Transition Plan for Lynda/Edutouch</h2>
+                <div class="key-points">
+                    <div class="point">
+                        <h3>Business Restructuring</h3>
+                        <p>Close Edutouch and other companies (except Chemqua) to eliminate burden and obligations.</p>
+                    </div>
+                    <div class="point">
+                        <h3>Focus on Core Strengths</h3>
+                        <p>Retain Chemqua for continued income generation with Mel's assistance, leveraging existing expertise.</p>
+                    </div>
+                    <div class="point">
+                        <h3>Personal Life Balance</h3>
+                        <p>Consider property downsizing and estate closure to reduce administrative burden and enable life enjoyment.</p>
+                    </div>
+                </div>
+                
+                <div class="risk-mitigation">
+                    <h3>🛡️ Risk Mitigation</h3>
+                    <p><strong>Reputation Management:</strong> New company addresses Edutouch reputation concerns while maintaining continuity of service and relationships.</p>
+                </div>
+                
+                <div class="success-metrics">
+                    <h3>📊 Success Metrics</h3>
+                    <p><strong>Key Indicators:</strong> Ivanhoe confidence restored, final payments received, new company operational, reduced administrative burden for Lynda.</p>
+                </div>
+            </div>
+            
+            <div class="financial-impact">
+                <img src="assets/ivanplats-logo.svg" alt="" class="watermark watermark-bottom-left">
+                <h2>Financial Impact Analysis</h2>
+                <div class="financial-grid">
+                    <div class="financial-item">
+                        <h4>Short-term (0-6 months)</h4>
+                        <p>• Complete tablet solution payment<br>• Setup costs for new company<br>• Edutouch closure expenses</p>
+                    </div>
+                    <div class="financial-item">
+                        <h4>Medium-term (6-18 months)</h4>
+                        <p>• New company revenue from tablet solutions<br>• Contractor payments to DeonS/DB<br>• Reduced overhead from closures</p>
+                    </div>
+                    <div class="financial-item">
+                        <h4>Long-term (18+ months)</h4>
+                        <p>• Established client relationship<br>• Potential for service expansion<br>• Simplified business structure</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section meeting-prep">
+                <h2>Meeting Preparation & Action Items</h2>
+                <div class="action-items">
+                    <div class="action-item priority-high">
+                        <h4>🔴 High Priority</h4>
+                        <p><strong>Prepare transition timeline</strong> - Detail specific dates for deliverable completion and company formation</p>
+                    </div>
+                    <div class="action-item priority-high">
+                        <h4>🔴 High Priority</h4>
+                        <p><strong>Contractor agreements</strong> - Outline terms for DeonS support and DB development work</p>
+                    </div>
+                    <div class="action-item priority-medium">
+                        <h4>🟡 Medium Priority</h4>
+                        <p><strong>Financial projections</strong> - Show potential revenue streams and cost structure for new entity</p>
+                    </div>
+                    <div class="action-item priority-medium">
+                        <h4>🟡 Medium Priority</h4>
+                        <p><strong>Service continuity plan</strong> - Demonstrate seamless transition for Ivanhoe operations</p>
+                    </div>
+                    <div class="action-item priority-low">
+                        <h4>🟢 Low Priority</h4>
+                        <p><strong>Long-term roadmap</strong> - Vision for expanding tablet solution market presence</p>
+                    </div>
+                    <div class="action-item priority-low">
+                        <h4>🟢 Low Priority</h4>
+                        <p><strong>Backup contingencies</strong> - Alternative approaches if primary strategy faces obstacles</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; padding: 20px; background: rgba(51, 51, 51, 0.05); border-radius: 10px;">
+                    <h3>💡 Meeting Key Messages</h3>
+                    <p><strong>For Ivanhoe:</strong> "We're committed to continuity and excellence. This transition eliminates previous concerns while strengthening our partnership through dedicated focus and new business structure."</p>
+                    <br>
+                    <p><strong>For Lynda:</strong> "This strategy provides closure for Edutouch obligations while positioning you for a simplified, focused future with Chemqua and personal well-being."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
